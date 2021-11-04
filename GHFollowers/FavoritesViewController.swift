@@ -14,7 +14,6 @@ class FavoritesViewController: UIViewController {
 
         view.backgroundColor = .systemBlue
 
-        
     }
     
 
