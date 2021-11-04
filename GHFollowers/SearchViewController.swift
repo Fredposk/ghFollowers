@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  SearchViewController.swift
 //  GHFollowers
 //
 //  Created by Frederico Kuckelhaus on 03.11.21.
@@ -7,15 +7,14 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class SearchViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.backgroundColor = .link
-        // Do any additional setup after loading the view.
+        view.backgroundColor = .systemPink
     }
+    
 
 
 }
-
