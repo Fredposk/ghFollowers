@@ -13,6 +13,8 @@ class FavoritesViewController: UIViewController {
         super.viewDidLoad()
 
         view.backgroundColor = .systemBlue
+
+        
     }
     
 
