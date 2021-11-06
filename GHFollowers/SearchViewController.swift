@@ -39,13 +39,13 @@ class SearchViewController: UIViewController {
 
     @objc func pushFollowersListViewController() {
         guard let username = userNameTextField.text, userNameTextField.text?.isEmpty == false else {
+            presentGFAlertOnMainThread(title: "Empty User Name", message: "Please enter a User Name", buttonTitle: "OK")
             return
         }
         let followersListVC = FollowersListViewController()
         followersListVC.userName = username
         followersListVC.title = username
         navigationController?.pushViewController(followersListVC, animated: true)
-
     }
 
 
