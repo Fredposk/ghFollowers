@@ -72,23 +72,55 @@
 		4009F8112733191000D531EA /* GHFollowers */ = {
 			isa = PBXGroup;
 			children = (
-				4009F8122733191000D531EA /* AppDelegate.swift */,
-				4009F8142733191100D531EA /* SceneDelegate.swift */,
-				4009F8262733218700D531EA /* SearchViewController.swift */,
-				4009F828273321C700D531EA /* FavoritesViewController.swift */,
+				40570395273823590095BD5E /* Resources */,
+				40570394273822F60095BD5E /* Extensions */,
+				40570393273822C70095BD5E /* Custom Views */,
+				40570392273822910095BD5E /* Screens */,
 				4009F81B2733191300D531EA /* Assets.xcassets */,
 				4009F81D2733191300D531EA /* LaunchScreen.storyboard */,
 				4009F8202733191300D531EA /* Info.plist */,
-				409C5A682733F6F5000C4934 /* GFButton.swift */,
+			);
+			path = GHFollowers;
+			sourceTree = "<group>";
+		};
+		40570392273822910095BD5E /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				4064B6FA2736DCE500D71F25 /* GFAlertViewController.swift */,
+				4009F8262733218700D531EA /* SearchViewController.swift */,
+				4009F828273321C700D531EA /* FavoritesViewController.swift */,
 				409C5A6C27353C3F000C4934 /* FollowersListViewController.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		40570393273822C70095BD5E /* Custom Views */ = {
+			isa = PBXGroup;
+			children = (
+				409C5A682733F6F5000C4934 /* GFButton.swift */,
 				409C5A6A273408BD000C4934 /* GFTextField.swift */,
 				4064B6F62735987700D71F25 /* GFTitleLabel.swift */,
 				4064B6F827359B1800D71F25 /* GFBodyLabel.swift */,
-				4064B6FA2736DCE500D71F25 /* GFAlertViewController.swift */,
 				4064B6FE2736E0BD00D71F25 /* GFAlertContainerView.swift */,
+			);
+			path = "Custom Views";
+			sourceTree = "<group>";
+		};
+		40570394273822F60095BD5E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
 				4064B7002736F03100D71F25 /* UIViewController+Ext.swift */,
 			);
-			path = GHFollowers;
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		40570395273823590095BD5E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				4009F8122733191000D531EA /* AppDelegate.swift */,
+				4009F8142733191100D531EA /* SceneDelegate.swift */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
