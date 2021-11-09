@@ -17,15 +17,25 @@ class FollowersListViewController: UIViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
 
 
-        NetworkManager.shared.getFollowers(for: userName, page: 1) { [weak self] followers, errorMessage in
+//        NetworkManager.shared.getFollowers(for: userName, page: 1) { [weak self] followers, errorMessage in
+//
+//            guard let strongSelf = self else {return}
+//
+//            guard let followers = followers else {
+//                strongSelf.presentGFAlertOnMainThread(title: "Bad stuff happened", message: errorMessage!.rawValue, buttonTitle: "OK")
+//                return
+//            }
+//            print(followers)
+//        }
 
+        NetworkManager.shared.getFollowers(for: userName, page: 1) { [weak self] result in
             guard let strongSelf = self else {return}
-
-            guard let followers = followers else {
-                strongSelf.presentGFAlertOnMainThread(title: "Bad stuff happened", message: errorMessage!.rawValue, buttonTitle: "OK")
-                return
+            switch result {
+            case .success(let result):
+                print(result)
+            case .failure(let failure):
+                strongSelf.presentGFAlertOnMainThread(title: "Oops", message: failure.rawValue, buttonTitle: "OK")
             }
-            print(followers)
         }
     }
 
