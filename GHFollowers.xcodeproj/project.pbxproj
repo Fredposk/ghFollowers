@@ -101,7 +101,6 @@
 		40570392273822910095BD5E /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				4064B6FA2736DCE500D71F25 /* GFAlertViewController.swift */,
 				4009F8262733218700D531EA /* SearchViewController.swift */,
 				4009F828273321C700D531EA /* FavoritesViewController.swift */,
 				409C5A6C27353C3F000C4934 /* FollowersListViewController.swift */,
@@ -119,6 +118,7 @@
 				4064B6F827359B1800D71F25 /* GFBodyLabel.swift */,
 				4064B6FE2736E0BD00D71F25 /* GFAlertContainerView.swift */,
 				409E6062273BFF3D00258CFA /* GFAvatarImageView.swift */,
+				4064B6FA2736DCE500D71F25 /* GFAlertViewController.swift */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";

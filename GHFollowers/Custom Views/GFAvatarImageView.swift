@@ -21,10 +21,13 @@ class GFAvatarImageView: UIImageView {
     }
 
     private func configure() {
-        translatesAutoresizingMaskIntoConstraints = false
         clipsToBounds = true
         layer.cornerRadius = 10
+        layer.borderColor = UIColor.black.cgColor
+        layer.borderWidth = 3
+        contentMode = .scaleAspectFill
         image = placeholderImage
+        translatesAutoresizingMaskIntoConstraints = false
     }
 
 

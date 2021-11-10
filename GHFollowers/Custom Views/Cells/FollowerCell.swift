@@ -10,7 +10,7 @@ import UIKit
 class FollowerCell: UICollectionViewCell {
     static let ReUseIdentifier = "FollowerCell"
     let avatarImageView = GFAvatarImageView(frame: .zero)
-    var userNameLabel = GFTitleLabel(textAlignment: .center, fontSize: 16)
+    var usernameLabel = GFTitleLabel(textAlignment: .center, fontSize: 16)
 
     let padding: CGFloat = 8
 
@@ -23,24 +23,24 @@ class FollowerCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func set(follower: Follower) {
-        userNameLabel.text = follower.login
+    func setData(with follower: Follower) {
+        usernameLabel.text = follower.login
     }
 
     private func configure() {
         addSubview(avatarImageView)
-        addSubview(userNameLabel)
+        addSubview(usernameLabel)
 
         NSLayoutConstraint.activate([
-            avatarImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: padding),
-            avatarImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: padding),
-            avatarImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -padding),
+            avatarImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: padding),
+            avatarImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: padding),
+            avatarImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -padding),
             avatarImageView.heightAnchor.constraint(equalTo: avatarImageView.widthAnchor),
 
-            userNameLabel.topAnchor.constraint(equalTo: avatarImageView.bottomAnchor, constant: 12),
-            userNameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: padding),
-            userNameLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -padding),
-            userNameLabel.heightAnchor.constraint(equalToConstant: 20)
+            usernameLabel.topAnchor.constraint(equalTo: avatarImageView.bottomAnchor, constant: 12),
+            usernameLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: padding),
+            usernameLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -padding),
+            usernameLabel.heightAnchor.constraint(equalToConstant: 20)
         ])
     }
 }
