@@ -5,15 +5,16 @@
 //  Created by Frederico Kuckelhaus on 08.11.21.
 //
 
-import Foundation
+
+import UIKit
 
 
 
 
 final class NetworkManager {
     static let shared = NetworkManager()
-
     private let baseUrl = "https://api.github.com/users/"
+    let cache = NSCache<NSString, UIImage>()
 
     private init(){}
 }
@@ -22,9 +23,9 @@ final class NetworkManager {
 
 extension NetworkManager {
     
-//    might need to become public
-    typealias getFollowersResult = (Result<[Follower], ErrorMessage>) -> Void
-//    typealias getFollowersCompletion = (([Follower]?, ErrorMessage?) -> Void)
+
+   public typealias getFollowersResult = (Result<[Follower], ErrorMessage>) -> Void
+
 
     func getFollowers(for userName: String, page: Int, completed: @escaping getFollowersResult) {
         let endpoint = baseUrl + "\(userName)/followers?per_page=100&page=\(page)"
