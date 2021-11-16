@@ -43,6 +43,8 @@ class UserInfoVC: UIViewController {
 
                 DispatchQueue.main.async {
                     self.add(GFUserInfoHeaderVC(user: user), to: self.headerView)
+                    self.add(GFRepoItemVC(user: user), to: self.itemOne)
+                    self.add(GFFollowerItemVC(user: user), to: self.itemTwo)
                 }
 
             }
@@ -69,10 +71,6 @@ class UserInfoVC: UIViewController {
 
 
         }
-
-
-        itemOne.backgroundColor = .systemPink
-        itemTwo.backgroundColor = .systemBlue
 
 
 
