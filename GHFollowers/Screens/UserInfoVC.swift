@@ -14,6 +14,7 @@ class UserInfoVC: UIViewController {
     let headerView = UIView()
     let itemOne = UIView()
     let itemTwo = UIView()
+    let dateLabel = GFBodyLabel(textAlignment: .center)
 
     var itemViews: [UIView] = []
 
@@ -40,13 +41,12 @@ class UserInfoVC: UIViewController {
             case .failure(let error):
                 self.presentGFAlertOnMainThread(title: "\(error)", message: "Error fetching user", buttonTitle: "OK")
             case .success(let user):
-
                 DispatchQueue.main.async {
                     self.add(GFUserInfoHeaderVC(user: user), to: self.headerView)
                     self.add(GFRepoItemVC(user: user), to: self.itemOne)
                     self.add(GFFollowerItemVC(user: user), to: self.itemTwo)
+                    self.dateLabel.text = "User Since \(user.createdAt.convertToDisplayFormat())"
                 }
-
             }
         }
     }
@@ -56,9 +56,7 @@ class UserInfoVC: UIViewController {
         let padding: CGFloat = 20
         let itemHeight: CGFloat = 140
 
-        itemViews = [headerView, itemOne, itemTwo]
-
-        
+        itemViews = [headerView, itemOne, itemTwo, dateLabel]
 
         for itemView in itemViews {
             view.addSubview(itemView)
@@ -89,6 +87,9 @@ class UserInfoVC: UIViewController {
 //            itemTwo.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
 //            itemTwo.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding),
             itemTwo.heightAnchor.constraint(equalToConstant: itemHeight),
+
+            dateLabel.topAnchor.constraint(equalTo: itemTwo.bottomAnchor, constant: padding),
+            dateLabel.heightAnchor.constraint(equalToConstant: 18)
 
         ])
     }

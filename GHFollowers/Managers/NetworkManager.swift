@@ -20,7 +20,6 @@ final class NetworkManager {
 }
 
 
-
 extension NetworkManager {
 
    public typealias getFollowersResult = (Result<[Follower], ErrorMessage>) -> Void
@@ -60,7 +59,6 @@ extension NetworkManager {
 //                completed(nil, .unableToParseData)
                 completed(.failure(.unableToParseData))
             }
-
         }
         task.resume()
     }

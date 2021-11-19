@@ -37,6 +37,8 @@
 		40D8D15F2743AB9F00FAD588 /* GFItemInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D8D15E2743AB9F00FAD588 /* GFItemInfoVC.swift */; };
 		40D8D1612743B06300FAD588 /* GFRepoItemVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D8D1602743B06300FAD588 /* GFRepoItemVC.swift */; };
 		40D8D1632743B59B00FAD588 /* GFFollowerItemVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D8D1622743B59B00FAD588 /* GFFollowerItemVC.swift */; };
+		40F8729A27482B3F001922D9 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F8729927482B3F001922D9 /* String+Ext.swift */; };
+		40F8729C27482D85001922D9 /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F8729B27482D85001922D9 /* Date+Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +74,8 @@
 		40D8D15E2743AB9F00FAD588 /* GFItemInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFItemInfoVC.swift; sourceTree = "<group>"; };
 		40D8D1602743B06300FAD588 /* GFRepoItemVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFRepoItemVC.swift; sourceTree = "<group>"; };
 		40D8D1622743B59B00FAD588 /* GFFollowerItemVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFFollowerItemVC.swift; sourceTree = "<group>"; };
+		40F8729927482B3F001922D9 /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
+		40F8729B27482D85001922D9 /* Date+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +151,8 @@
 			isa = PBXGroup;
 			children = (
 				4064B7002736F03100D71F25 /* UIViewController+Ext.swift */,
+				40F8729927482B3F001922D9 /* String+Ext.swift */,
+				40F8729B27482D85001922D9 /* Date+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -332,11 +338,13 @@
 				4064B6FB2736DCE500D71F25 /* GFAlertViewController.swift in Sources */,
 				409C5A6B273408BD000C4934 /* GFTextField.swift in Sources */,
 				4064B7012736F03100D71F25 /* UIViewController+Ext.swift in Sources */,
+				40F8729A27482B3F001922D9 /* String+Ext.swift in Sources */,
 				40A7031B27429BFE000FA238 /* GFUserInfoHeaderVC.swift in Sources */,
 				409E6061273BDE9000258CFA /* FollowerCell.swift in Sources */,
 				4009F8132733191000D531EA /* AppDelegate.swift in Sources */,
 				40A70317273FEABD000FA238 /* GFEmptyStateView.swift in Sources */,
 				40A7031D27429C66000FA238 /* GFSecondaryTitleLabel.swift in Sources */,
+				40F8729C27482D85001922D9 /* Date+Ext.swift in Sources */,
 				409E6063273BFF3D00258CFA /* GFAvatarImageView.swift in Sources */,
 				409C5A692733F6F5000C4934 /* GFButton.swift in Sources */,
 				409C5A6D27353C3F000C4934 /* FollowersListViewController.swift in Sources */,
