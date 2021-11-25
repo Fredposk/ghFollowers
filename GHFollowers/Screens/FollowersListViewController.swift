@@ -70,7 +70,7 @@ class FollowersListViewController: UIViewController {
  
 
     func configureCollectionView() {
-        collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: UIHelper.createUICollectionViewFlowLayout(in: view))
+        collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: UIHelper.createCollectionViewCompositionalLayout())
         view.addSubview(collectionView)
         collectionView.delegate = self
         collectionView.register(FollowerCell.self, forCellWithReuseIdentifier: FollowerCell.ReUseIdentifier)
