@@ -8,6 +8,8 @@
 import UIKit
 
 class GFRepoItemVC: GFItemInfoVC {
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureItems()
@@ -17,5 +19,10 @@ class GFRepoItemVC: GFItemInfoVC {
         itemInfoViewOne.set(itemInfoType: .repos, with: user.publicRepos)
         itemInfoViewTwo.set(itemInfoType: .gists, with: user.publicGists)
         actionButton.set(backgroundColor: .systemPurple, title: "GitHub Profile")
+    }
+
+    override func didTapActionButton() {
+        guard let delegate = delegate else { return }
+        delegate.didTapGitHubProfile(for: user)
     }
 }

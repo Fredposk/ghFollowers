@@ -10,6 +10,7 @@ import UIKit
 class GFItemInfoVC: UIViewController {
 
     var user: User!
+    weak var delegate: UserInfoVCDelegate?
 
     let stackView = UIStackView()
     let itemInfoViewOne = GFItemInfoView()
@@ -21,6 +22,7 @@ class GFItemInfoVC: UIViewController {
         configureBackGroundView()
         layoutUI()
         configureStackView()
+        configureActionButton()
 
     }
 
@@ -32,6 +34,12 @@ class GFItemInfoVC: UIViewController {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+
+    private func configureActionButton() {
+        actionButton.addTarget(self, action: #selector(didTapActionButton), for: .touchUpInside)
+    }
+
+    @objc func didTapActionButton() {}
 
     private func configureStackView() {
         stackView.axis = .horizontal
