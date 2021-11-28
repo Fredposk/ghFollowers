@@ -9,7 +9,7 @@
 import UIKit
 
 
-
+typealias getFollowersResult = (Result<[Follower], ErrorMessage>) -> Void
 
 final class NetworkManager {
     static let shared = NetworkManager()
@@ -22,7 +22,7 @@ final class NetworkManager {
 
 extension NetworkManager {
 
-   public typealias getFollowersResult = (Result<[Follower], ErrorMessage>) -> Void
+
 
     func getFollowers(for userName: String, page: Int, completed: @escaping getFollowersResult) {
         let endpoint = baseUrl + "\(userName)/followers?per_page=100&page=\(page)"

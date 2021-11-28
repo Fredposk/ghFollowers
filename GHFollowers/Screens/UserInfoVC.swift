@@ -29,7 +29,6 @@ class UserInfoVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-
         configureViewController()
         layoutUI()
         getUserInfo()
@@ -57,8 +56,6 @@ class UserInfoVC: UIViewController {
     }
 
     func configureUIElements(with user: User) {
-
-
         let repoItemVC = GFRepoItemVC(user: user)
         repoItemVC.delegate = self
 
@@ -100,7 +97,6 @@ class UserInfoVC: UIViewController {
 
             dateLabel.topAnchor.constraint(equalTo: itemTwo.bottomAnchor, constant: padding),
             dateLabel.heightAnchor.constraint(equalToConstant: 18)
-
         ])
     }
 
@@ -116,7 +112,6 @@ class UserInfoVC: UIViewController {
     @objc func dismissVC() {
         dismiss(animated: true)
     }
-
 }
 
 
@@ -139,7 +134,4 @@ extension UserInfoVC: UserInfoVCDelegate {
         delegate.didRequestFollower(for: user.login)
         dismissVC()
     }
-
-
-
 }

@@ -13,5 +13,8 @@ enum ErrorMessage: String, Error {
     case invalidHTTPResponse = "Invalid response from server"
     case invalidData = "Invalid data received"
     case unableToParseData = "Error parsing data"
+    case unableToGetFavorite = "Unable to retrieve Favourites"
+    case unableToSaveFavorite = "Unable to save Favourite"
+    case alreadyFavorited = "User is already in Favourites"
 
 }

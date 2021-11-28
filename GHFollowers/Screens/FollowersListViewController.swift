@@ -43,6 +43,35 @@ class FollowersListViewController: UIViewController {
     func configureViewController() {
         view.backgroundColor = .systemBackground
         navigationController?.navigationBar.prefersLargeTitles = true
+
+        let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(didTapAddButton))
+        navigationItem.rightBarButtonItem = addButton
+    }
+
+    @objc func didTapAddButton() {
+
+        showLoadingView()
+
+        NetworkManager.shared.getUser(for: userName) { [weak self] result in
+            guard let self = self else { return }
+            self.dismissLoadingView()
+            switch result {
+            case .success(let user):
+                let favourite = Follower(login: user.login, avatarUrl: user.avatarUrl)
+                PersistanceManager.updateWith(favourite: favourite, actionType: .add) { [weak self] error in
+                    guard let self = self else { return }
+                    guard let error = error else {
+                        self.presentGFAlertOnMainThread(title: "Success", message: "User Saved", buttonTitle: "OK")
+                        return
+                    }
+                    self.presentGFAlertOnMainThread(title: "Error", message: error.rawValue, buttonTitle: "OK")
+                }
+
+            case .failure(let error):
+                self.presentGFAlertOnMainThread(title: "Error", message: error.rawValue, buttonTitle: "OK")
+            }
+
+        }
     }
 
     func getFollowers(for userName: String, on page: Int) {
@@ -160,8 +189,6 @@ extension FollowersListViewController: UISearchResultsUpdating, UISearchControll
         updateData(on: followers)
         isSearching = false
     }
-
-
 }
 
 extension FollowersListViewController: FollowerListVCDelegate {
@@ -172,9 +199,9 @@ extension FollowersListViewController: FollowerListVCDelegate {
         page = 1
         followers.removeAll()
         filteredFollowers.removeAll()
-        let adjustedInset = collectionView.adjustedContentInset.top
-        collectionView.setContentOffset(.init(x: 0, y: 0-adjustedInset), animated: true)
+        collectionView.setContentOffset(.init(x: 0, y: 0-collectionView.adjustedContentInset.top), animated: true)
         getFollowers(for: userName, on: page)
+
 
     }
 
