@@ -51,6 +51,8 @@ class GFItemInfoVC: UIViewController {
 
     private func configureBackGroundView() {
         view.layer.cornerRadius = 18
+        view.layer.borderWidth = 2
+        view.layer.borderColor = UIColor.tertiarySystemBackground.cgColor
         view.backgroundColor = .secondarySystemBackground
     }
     
