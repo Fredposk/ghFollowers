@@ -27,13 +27,14 @@ class SearchViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        userNameTextField.text = ""
         navigationController?.isNavigationBarHidden = true
     }
 
 
 
     func createDismissKeyboardTapGesture() {
-        let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:)))
+        let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing(_:)))
         view.addGestureRecognizer(tap)
     }
 
@@ -54,7 +55,7 @@ class SearchViewController: UIViewController {
      func configureLogoImageView() {
         view.addSubview(logoImageView)
         logoImageView.translatesAutoresizingMaskIntoConstraints = false
-        logoImageView.image = UIImage(named: "gh-logo")
+         logoImageView.image = Images.ghLogo
 
         NSLayoutConstraint.activate([
             logoImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 80),

@@ -58,7 +58,7 @@ class FollowersListViewController: UIViewController {
             switch result {
             case .success(let user):
                 let favourite = Follower(login: user.login, avatarUrl: user.avatarUrl)
-                PersistanceManager.updateWith(favourite: favourite, actionType: .add) { [weak self] error in
+                PersistenceManager.updateWith(favourite: favourite, actionType: .add) { [weak self] error in
                     guard let self = self else { return }
                     guard let error = error else {
                         self.presentGFAlertOnMainThread(title: "Success", message: "User Saved", buttonTitle: "OK")
