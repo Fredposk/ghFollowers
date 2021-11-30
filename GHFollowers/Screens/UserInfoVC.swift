@@ -65,7 +65,7 @@ class UserInfoVC: UIViewController {
         add(GFUserInfoHeaderVC(user: user), to: headerView)
         add(repoItemVC, to: itemOne)
         add(followerItemVC, to: itemTwo)
-        dateLabel.text = "User Since \(user.createdAt.convertToDisplayFormat())"
+        self.dateLabel.text = "User Since \(user.createdAt.convertToMonthYearString())"
     }
 
     func layoutUI() {

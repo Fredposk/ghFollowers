@@ -11,6 +11,7 @@ class GFBodyLabel: UILabel {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
+        configure()
     }
 
     required init?(coder: NSCoder) {
@@ -18,15 +19,15 @@ class GFBodyLabel: UILabel {
     }
 
 
-    init(textAlignment: NSTextAlignment) {
-        super.init(frame: .zero)
-
+    convenience init (textAlignment: NSTextAlignment) {
+        self.init(frame: .zero)
         self.textAlignment = textAlignment
-        configure()
+
     }
 
     private func configure() {
         textColor = .secondaryLabel
+        textAlignment = textAlignment
         font = UIFont.preferredFont(forTextStyle: .body)
         adjustsFontSizeToFitWidth = true
         minimumScaleFactor = 0.75
