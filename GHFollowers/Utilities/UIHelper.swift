@@ -7,7 +7,7 @@
 
 import UIKit
 
-struct UIHelper {
+enum UIHelper {
 
 
    static func createUICollectionViewFlowLayout (in view: UIView) -> UICollectionViewFlowLayout {

@@ -24,18 +24,30 @@ class GFEmptyStateView: UIView {
     init(message: String) {
         super.init(frame: .zero)
         messageLabel.text = message
-        configure()
+        configureLogoImageView()
+        configureMessageLabel()
     }
 
-    private func configure() {
-        addSubview(messageLabel)
+    private func configureLogoImageView() {
         addSubview(logoImageView)
+
+        logoImageView.image = Images.emptyStateLogo
+        logoImageView.translatesAutoresizingMaskIntoConstraints = false
+
+        NSLayoutConstraint.activate([
+            logoImageView.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 1.3),
+            logoImageView.heightAnchor.constraint(equalTo: self.widthAnchor, multiplier: 1.3),
+            logoImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 170),
+            logoImageView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 40)
+        ])
+    }
+
+    private func configureMessageLabel() {
+        addSubview(messageLabel)
 
         messageLabel.numberOfLines = 3
         messageLabel.textColor = .secondaryLabel
 
-        logoImageView.image = UIImage(named: "empty-state-logo")
-        logoImageView.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
             messageLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: -150),
@@ -43,10 +55,6 @@ class GFEmptyStateView: UIView {
             messageLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -40),
             messageLabel.heightAnchor.constraint(equalToConstant: 200),
 
-            logoImageView.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 1.3),
-            logoImageView.heightAnchor.constraint(equalTo: self.widthAnchor, multiplier: 1.3),
-            logoImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 170),
-            logoImageView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 40)
         ])
     }
 

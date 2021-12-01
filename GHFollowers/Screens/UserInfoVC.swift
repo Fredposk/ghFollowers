@@ -8,10 +8,7 @@
 import UIKit
 
 
-protocol UserInfoVCDelegate: AnyObject {
-    func didTapGitHubProfile(for user: User)
-    func didTapGetFollowers(for user: User)
-}
+
 
 class UserInfoVC: UIViewController {
 
@@ -115,7 +112,8 @@ class UserInfoVC: UIViewController {
 }
 
 
-extension UserInfoVC: UserInfoVCDelegate {
+extension UserInfoVC: itemInfoVCDelegate {
+
     func didTapGitHubProfile(for user: User) {
         guard let url = URL(string: user.htmlUrl) else {
             presentGFAlertOnMainThread(title: "Invalid URL", message: "Error fetching user URL", buttonTitle: "OK")

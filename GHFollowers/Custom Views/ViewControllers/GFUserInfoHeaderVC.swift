@@ -44,7 +44,7 @@ class GFUserInfoHeaderVC: UIViewController {
         userNameLabel.text = user.login
         nameLabel.text = user.name ?? " "
         locationLabel.text = user.location ?? "No Location "
-        locationImageView.image = UIImage(systemName: SFSymbols.location)
+        locationImageView.image = SFSymbols.location
         locationImageView.tintColor = .secondaryLabel
         bioLabel.text = user.bio ?? " "
         bioLabel.numberOfLines = 3
