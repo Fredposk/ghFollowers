@@ -16,5 +16,4 @@ enum ErrorMessage: String, Error {
     case unableToGetFavorite = "Unable to retrieve Favourites"
     case unableToSaveFavorite = "Unable to save Favourite"
     case alreadyFavorited = "User is already in Favourites"
-
 }

@@ -10,7 +10,7 @@ import UIKit
 
 
 
-class UserInfoVC: UIViewController {
+class UserInfoVC: UIViewController{
 
     var userName: String!
 
@@ -53,15 +53,9 @@ class UserInfoVC: UIViewController {
     }
 
     func configureUIElements(with user: User) {
-        let repoItemVC = GFRepoItemVC(user: user)
-        repoItemVC.delegate = self
-
-        let followerItemVC = GFFollowerItemVC(user: user)
-        followerItemVC.delegate = self
-
         add(GFUserInfoHeaderVC(user: user), to: headerView)
-        add(repoItemVC, to: itemOne)
-        add(followerItemVC, to: itemTwo)
+        add(GFRepoItemVC(user: user, delegate: self), to: itemOne)
+        add(GFFollowerItemVC(user: user, delegate: self), to: itemTwo)
         self.dateLabel.text = "User Since \(user.createdAt.convertToMonthYearString())"
     }
 
@@ -112,7 +106,7 @@ class UserInfoVC: UIViewController {
 }
 
 
-extension UserInfoVC: itemInfoVCDelegate {
+extension UserInfoVC: RepoItemDelegate, FollowerItemVCDelegate  {
 
     func didTapGitHubProfile(for user: User) {
         guard let url = URL(string: user.htmlUrl) else {

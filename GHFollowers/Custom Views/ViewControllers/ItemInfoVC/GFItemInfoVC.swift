@@ -7,15 +7,9 @@
 
 import UIKit
 
-protocol itemInfoVCDelegate: AnyObject {
-    func didTapGitHubProfile(for user: User)
-    func didTapGetFollowers(for user: User)
-}
+
 
 class GFItemInfoVC: UIViewController {
-
-    var user: User!
-    weak var delegate: itemInfoVCDelegate?
 
     let stackView = UIStackView()
     let itemInfoViewOne = GFItemInfoView()
@@ -29,15 +23,6 @@ class GFItemInfoVC: UIViewController {
         configureStackView()
         configureActionButton()
 
-    }
-
-    init(user: User) {
-        super.init(nibName: nil, bundle: nil)
-        self.user = user
-    }
-
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
 
     private func configureActionButton() {
