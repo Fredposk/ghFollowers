@@ -16,6 +16,7 @@ class GFRepoItemVC: GFItemInfoVC {
     weak var delegate: RepoItemDelegate?
     var user: User!
 
+    
     init(user: User, delegate: RepoItemDelegate) {
         super.init(nibName: nil, bundle: nil)
         self.user = user
@@ -30,8 +31,6 @@ class GFRepoItemVC: GFItemInfoVC {
         super.viewDidLoad()
         configureItems()
     }
-
-
 
     func configureItems() {
         itemInfoViewOne.set(itemInfoType: .repos, with: user.publicRepos)

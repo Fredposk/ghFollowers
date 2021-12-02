@@ -121,8 +121,6 @@
 				40570394273822F60095BD5E /* Extensions */,
 				40570393273822C70095BD5E /* Custom Views */,
 				40570392273822910095BD5E /* Screens */,
-				4009F81B2733191300D531EA /* Assets.xcassets */,
-				4009F81D2733191300D531EA /* LaunchScreen.storyboard */,
 				4009F8202733191300D531EA /* Info.plist */,
 			);
 			path = GHFollowers;
@@ -169,6 +167,8 @@
 			children = (
 				4009F8122733191000D531EA /* AppDelegate.swift */,
 				4009F8142733191100D531EA /* SceneDelegate.swift */,
+				4009F81B2733191300D531EA /* Assets.xcassets */,
+				4009F81D2733191300D531EA /* LaunchScreen.storyboard */,
 			);
 			path = Resources;
 			sourceTree = "<group>";

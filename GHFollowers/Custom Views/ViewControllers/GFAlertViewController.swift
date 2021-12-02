@@ -22,7 +22,6 @@ class GFAlertViewController: UIViewController {
 
     init(alertTitle: String, message: String, buttonTitle: String) {
         super.init(nibName: nil, bundle: nil)
-
         self.alertTitle = alertTitle
         self.message = message
         self.buttonTitle = buttonTitle
@@ -42,7 +41,6 @@ class GFAlertViewController: UIViewController {
         configureTitleLabel()
         configureActionButton()
         configureBodyLabel()
-
     }
 
     func configureContainerView() {
@@ -53,11 +51,9 @@ class GFAlertViewController: UIViewController {
             containerView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             containerView.widthAnchor.constraint(equalToConstant: 280),
             containerView.heightAnchor.constraint(equalToConstant: 220)
-
         ])
 
     }
-
 
     func configureTitleLabel() {
         containerView.addSubview(titleLabel)

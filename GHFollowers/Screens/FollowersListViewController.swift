@@ -61,7 +61,6 @@ class FollowersListViewController: UIViewController {
     }
 
     @objc func didTapAddButton() {
-
         showLoadingView()
 
         NetworkManager.shared.getUser(for: userName) { [weak self] result in
@@ -88,6 +87,7 @@ class FollowersListViewController: UIViewController {
 
     func getFollowers(for userName: String, on page: Int) {
         showLoadingView()
+
         isLoadingMoreFollowers = true
         NetworkManager.shared.getFollowers(for: userName, page: page) { [weak self] result in
             
@@ -97,7 +97,6 @@ class FollowersListViewController: UIViewController {
             case .success(let result):
                 if result.count < 100 { self.hasMoreFollowers = false }
                 self.followers.append(contentsOf: result)
-
                 if self.followers.isEmpty {
                     let message = "this user doesn't have any followers"
                     DispatchQueue.main.async {
@@ -105,7 +104,6 @@ class FollowersListViewController: UIViewController {
                     }
                     return
                 }
-//                strongSelf.followers = result
                 self.updateData(on: self.followers)
             case .failure(let failure):
                 self.presentGFAlertOnMainThread(title: "Oops", message: failure.rawValue, buttonTitle: "OK")
@@ -147,9 +145,6 @@ class FollowersListViewController: UIViewController {
         navigationItem.searchController = searchController
         searchController.delegate = self
     }
-
-
-
 }
 
 extension FollowersListViewController: UICollectionViewDelegate {
@@ -157,14 +152,6 @@ extension FollowersListViewController: UICollectionViewDelegate {
         let offsetY = scrollView.contentOffset.y
         let contentHeight = scrollView.contentSize.height
         let height = scrollView.frame.size.height
-
-//        origin of the scrollview (starts at zero)
-        print("\(offsetY)")
-//        whole height of collection view contents
-        print("\(contentHeight)")
-//        height of screen
-        print("\(height)")
-
 
         if offsetY > contentHeight - height {
             guard hasMoreFollowers, isLoadingMoreFollowers == false else { return }
@@ -182,7 +169,6 @@ extension FollowersListViewController: UICollectionViewDelegate {
         destinationVC.userName = follower.login
         let nav = UINavigationController(rootViewController: destinationVC)
         present(nav, animated: true)
-
     }
 }
 
@@ -195,15 +181,11 @@ extension FollowersListViewController: UISearchResultsUpdating, UISearchControll
             isSearching = false
             return
         }
+        
         isSearching = true
         filteredFollowers = followers.filter { $0.login.lowercased().contains(filter.lowercased()) }
         updateData(on: filteredFollowers)
     }
-
-//    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-//        updateData(on: followers)
-//        isSearching = false
-//    }
 }
 
 extension FollowersListViewController: FollowerListVCDelegate {
@@ -215,7 +197,6 @@ extension FollowersListViewController: FollowerListVCDelegate {
         filteredFollowers.removeAll()
         collectionView.scrollsToTop = true
         collectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .top, animated: true)
-//        collectionView.setContentOffset(.init(x: 0, y: 0-collectionView.adjustedContentInset.top), animated: true)
         getFollowers(for: userName, on: page)
     }
 

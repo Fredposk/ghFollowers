@@ -50,7 +50,6 @@ class GFItemInfoView: UIView {
             countLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             countLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             countLabel.heightAnchor.constraint(equalToConstant: 18)
-
         ])
     }
 
@@ -71,5 +70,4 @@ class GFItemInfoView: UIView {
         }
         countLabel.text = String(count)
     }
-
 }

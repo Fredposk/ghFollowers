@@ -11,9 +11,7 @@ enum PersistenceManager {
 
     static private let defaults = UserDefaults.standard
 
-    enum Keys {
-        static let favorites = "favorites"
-    }
+    enum Keys { static let favorites = "favorites" }
 
     enum PersistenceActionType {
         case add, remove
@@ -22,20 +20,18 @@ enum PersistenceManager {
     static func updateWith(favourite: Follower, actionType: PersistenceActionType, completed: @escaping (ErrorMessage?) -> Void) {
         retrieveFavorites { result in
             switch result {
-            case .success(let favourites):
-                var retrieveFavourites = favourites
-
+            case .success(var favourites):
                 switch actionType {
                 case .add:
-                    guard retrieveFavourites.contains(favourite) == false else {
+                    guard favourites.contains(favourite) == false else {
                         completed(.alreadyFavorited)
                         return
                     }
-                    retrieveFavourites.append(favourite)
+                    favourites.append(favourite)
                 case .remove:
-                    retrieveFavourites.removeAll { $0.login == favourite.login}
+                    favourites.removeAll { $0.login == favourite.login}
                 }
-                completed(save(favourites: retrieveFavourites))
+                completed(save(favourites: favourites))
             case .failure(_):
                 completed(ErrorMessage.unableToGetFavorite)
             }

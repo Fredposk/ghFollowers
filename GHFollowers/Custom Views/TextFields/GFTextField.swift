@@ -28,7 +28,6 @@ class GFTextField: UITextField {
 
         textColor = .label
         tintColor = .label
-//        textAlignment = .center
         leftView = UIView(frame: CGRect(x: 0, y: 0, width: 8, height: 0))
         leftViewMode = .always
         font = UIFont.preferredFont(forTextStyle: .title2)

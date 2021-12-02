@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 typealias getFollowersResult = (Result<[Follower], ErrorMessage>) -> Void
 
  final class NetworkManager {

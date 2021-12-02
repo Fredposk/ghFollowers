@@ -14,7 +14,6 @@ class SearchViewController: UIViewController {
     let callToActionButton = GFButton(backgroundColor: .systemGreen, title: "Get Followers")
 
 
-
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
@@ -31,8 +30,6 @@ class SearchViewController: UIViewController {
         navigationController?.isNavigationBarHidden = true
     }
 
-
-
     func createDismissKeyboardTapGesture() {
         let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing(_:)))
         view.addGestureRecognizer(tap)
@@ -44,7 +41,6 @@ class SearchViewController: UIViewController {
             return
         }
         let followersListVC = FollowersListViewController(username: username)
-
         navigationController?.pushViewController(followersListVC, animated: true)
     }
 
@@ -89,9 +85,7 @@ class SearchViewController: UIViewController {
             callToActionButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50),
             callToActionButton.heightAnchor.constraint(equalToConstant: 50)
         ])
-
     }
-
 }
 
 extension SearchViewController: UITextFieldDelegate {

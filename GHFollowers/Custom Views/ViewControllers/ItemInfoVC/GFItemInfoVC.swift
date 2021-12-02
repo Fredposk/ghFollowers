@@ -22,7 +22,6 @@ class GFItemInfoVC: UIViewController {
         layoutUI()
         configureStackView()
         configureActionButton()
-
     }
 
     private func configureActionButton() {
@@ -64,8 +63,5 @@ class GFItemInfoVC: UIViewController {
             actionButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding),
             actionButton.heightAnchor.constraint(equalToConstant: 44)
         ])
-
     }
-
-
 }

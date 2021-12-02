@@ -18,7 +18,6 @@ class GFAlertContainerView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 
-
     private func configure() {
         backgroundColor = .systemBackground
 

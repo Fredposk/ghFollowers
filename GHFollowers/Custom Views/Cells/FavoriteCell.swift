@@ -13,7 +13,6 @@ class FavoriteCell: UITableViewCell {
     let avatarImageView = GFAvatarImageView(frame: .zero)
     var usernameLabel = GFTitleLabel(textAlignment: .left, fontSize: 26)
 
-
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         configure()
@@ -25,7 +24,6 @@ class FavoriteCell: UITableViewCell {
 
     func setData(with favourite: Follower) {
         usernameLabel.text = favourite.login
-//        avatarImageView.downloadImage(from: favourite.avatarUrl)
         NetworkManager.shared.downloadImage(from: favourite.avatarUrl) {[weak self] result in
             guard let self = self else { return }
             self.avatarImageView.image = result
@@ -50,7 +48,5 @@ class FavoriteCell: UITableViewCell {
             usernameLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -padding),
             usernameLabel.heightAnchor.constraint(equalToConstant: 40)
         ])
-
     }
-
 }

@@ -12,12 +12,12 @@ class FavoritesViewController: UIViewController {
     let tableView = UITableView()
     var favourites: [Follower] = []
 
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         configure()
         configureTableView()
-
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -60,9 +60,6 @@ class FavoritesViewController: UIViewController {
             }
         }
     }
-    
-
-
 }
 
 extension FavoritesViewController: UITableViewDataSource, UITableViewDelegate {
@@ -88,16 +85,14 @@ extension FavoritesViewController: UITableViewDataSource, UITableViewDelegate {
 
         let favourite = favourites[indexPath.row]
 
-        favourites.remove(at: indexPath.row)
-        tableView.deleteRows(at: [indexPath], with: .fade)
-
         PersistenceManager.updateWith(favourite: favourite, actionType: .remove) { [weak self] error in
             guard let self = self else { return }
-            guard let error = error else { return }
-
+            guard let error = error else {
+                self.favourites.remove(at: indexPath.row)
+                tableView.deleteRows(at: [indexPath], with: .fade)
+                return
+            }
             self.presentGFAlertOnMainThread(title: "Error deleting user", message: error.rawValue, buttonTitle: "OK")
         }
     }
-
-
 }

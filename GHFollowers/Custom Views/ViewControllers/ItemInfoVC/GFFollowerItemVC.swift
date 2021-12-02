@@ -16,6 +16,7 @@ class GFFollowerItemVC: GFItemInfoVC {
     weak var delegate: FollowerItemVCDelegate?
     var user: User!
 
+
     init(user: User, delegate: FollowerItemVCDelegate) {
         super.init(nibName: nil, bundle: nil)
         self.user = user
@@ -41,6 +42,5 @@ class GFFollowerItemVC: GFItemInfoVC {
         guard let delegate = delegate else {return}
         delegate.didTapGetFollowers(for: user)
     }
-
 }
  

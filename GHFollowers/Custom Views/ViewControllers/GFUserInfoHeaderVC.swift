@@ -35,7 +35,6 @@ class GFUserInfoHeaderVC: UIViewController {
     }
 
     func configureUIElements() {
-//        avatarImageView.downloadImage(from: user.avatarUrl)
         NetworkManager.shared.downloadImage(from: user.avatarUrl) { [weak self] result in
             guard let self = self else { return }
             self.avatarImageView.image = result
@@ -60,7 +59,6 @@ class GFUserInfoHeaderVC: UIViewController {
     }
 
     func layoutUI() {
-//        let padding: CGFloat = 20
         let textImagePadding: CGFloat = 12
 
         locationImageView.translatesAutoresizingMaskIntoConstraints = false
@@ -97,8 +95,4 @@ class GFUserInfoHeaderVC: UIViewController {
             bioLabel.heightAnchor.constraint(equalToConstant: 60)
         ])
     }
-    
-
-
-
 }

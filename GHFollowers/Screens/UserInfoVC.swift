@@ -7,13 +7,9 @@
 
 import UIKit
 
-
-
-
 class UserInfoVC: UIViewController{
 
     var userName: String!
-
     weak var delegate: FollowerListVCDelegate!
 
     let headerView = UIView()
@@ -23,6 +19,7 @@ class UserInfoVC: UIViewController{
 
     var itemViews: [UIView] = []
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
