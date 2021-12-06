@@ -24,12 +24,14 @@ enum UIHelper {
 //    }
 
     static func createCollectionViewCompositionalLayout () -> UICollectionViewCompositionalLayout {
-        let item = NSCollectionLayoutItem(layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalHeight(0.5), heightDimension: .fractionalWidth(0.5)))
+        let item = NSCollectionLayoutItem(layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.5), heightDimension: .fractionalWidth(0.5)))
             item.contentInsets = NSDirectionalEdgeInsets(top: 12, leading: 12, bottom: 12, trailing: 12)
 
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalWidth(0.5)), subitem: item, count: 2)
 
+
         let section = NSCollectionLayoutSection(group: group)
+//        section.orthogonalScrollingBehavior = .groupPagingCentered
 
         return UICollectionViewCompositionalLayout(section: section)
 

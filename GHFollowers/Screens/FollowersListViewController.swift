@@ -15,6 +15,7 @@ class FollowersListViewController: UIViewController {
 
     enum section {
         case main
+        case notMain
     }
 
     var userName: String!
